@@ -3,7 +3,32 @@ import {getGuitarByUrl} from '~/models/guitars.server'
 import {useLoaderData} from '@remix-run/react'
 import styles from '~/styles/products.css'
 
+
+export async function loader({ params }) {
+  const { guitarUrl } = params;
+  const guitar = await getGuitarByUrl(guitarUrl);
+  
+  if(guitar.data.length === 0){
+    throw new Response('',{
+      status: 404,
+      statusText: 'Product not found'
+    })
+  }
+
+
+  return guitar
+}
+
+
 export function meta({data}){
+
+  if(!data){
+    return{
+      title: 'GuitarSpot | Product not found',
+      description: 'Product not found'
+    }
+  }
+
   return{
     title: `GuitarSpot | ${data.data[0].attributes.name}`,
     description: `Guitars store ${data.data[0].attributes.name}`,
@@ -19,11 +44,7 @@ export function links(){
   ]
 }
 
-export async function loader({params}){
-  const { guitarUrl } = params;
-  const guitar = await getGuitarByUrl(guitarUrl);
-  return guitar
-}
+
 
 function GuitarUrl() {
 
