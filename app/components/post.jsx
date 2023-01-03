@@ -3,7 +3,7 @@ import {formatDate} from '~/utils/helpers'
 
 export default function Post({post}) {
   const { title, content, url, thumbnail, publishedAt} = post;
-  console.log(thumbnail)
+  
   return (
     <article className='post'>
       <div className="content">
