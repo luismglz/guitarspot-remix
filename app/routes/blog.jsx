@@ -3,6 +3,13 @@ import { getBlogs } from '~/models/blogs.server';
 import Post from '~/components/post';
 import styles from '~/styles/blog.css'
 
+export function meta(){
+  return{
+    title: 'GuitarSpot | Blog',
+    description: 'GuitarSpot, music blog, guitar store'
+  }
+}
+
 export function links(){
   return[
     {
@@ -14,7 +21,7 @@ export function links(){
 
 
 export async function loader(){
-  const posts = await getPosts();
+  const posts = await getBlogs();
   return posts.data;
 }
 

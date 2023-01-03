@@ -11,7 +11,8 @@
 }
 
 .post{
-
+  max-width: 88rem;
+  margin: 0 auto;
 }
 
 .post .content{
@@ -25,10 +26,23 @@
 
 }
 
+.post .date{
+  font-size: 1.6rem;
+  color: var(--primary);
+}
+
 .post .summary{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
+}
+
+.post__body{
+  white-space: pre-wrap;
+}
+
+.mt-3{
+  margin-top: 3rem;
 }
 
