@@ -1,6 +1,6 @@
 import {getGuitars} from '~/models/guitars.server'
 import {useLoaderData} from '@remix-run/react'
-import Product from '~/components/product'
+import ProductList from '~/components/product-list'
 import styles from '~/styles/products.css'
 
 
@@ -33,17 +33,8 @@ function Store() {
 
   return (
     <main className='container'>
-      <h2 className='heading'>Explore our collection</h2>
-      {guitars.length && (
-        <div className='guitars-grid'>
-          {guitars.map(guitar => (
-            <Product
-              key={guitar?.id}
-              product={guitar?.attributes}
-            />
-          ))}
-        </div>
-      )}
+      <ProductList
+      guitars={guitars}/>
     </main>
   )
 }
