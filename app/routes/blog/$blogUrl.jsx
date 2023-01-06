@@ -1,15 +1,6 @@
 import { useLoaderData } from '@remix-run/react';
 import { getBlogByUrl } from '~/models/blogs.server'
 import {formatDate} from '~/utils/helpers'
-import styles from '~/styles/blog.css'
-export function links(){
-  return[
-    {
-      rel: 'stylesheet',
-      href: styles
-    }
-  ]
-}
 
 export function meta({ data }) {
 
@@ -37,9 +28,10 @@ export async function loader({ params }) {
     })
   }
 
-
   return post
 }
+
+
 
 export default function Blog() {
 
@@ -47,7 +39,7 @@ export default function Blog() {
   
   const { title, content, url, publishedAt, thumbnail } = post?.data[0]?.attributes
   return (
-    <article className='container post mt-3'>
+    <article className='post mt-3'>
       <div className="content">
         <img className='thumbnail' src={thumbnail.data.attributes.url} alt={`blog thumbnail ${title}`} />
         <h3>{title}</h3>
