@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Meta,
   Links,
@@ -48,9 +49,20 @@ export function links() {
 
 
 export default function App() {
+
+  const [cart, setCart] = useState([]);
+
+  const addToCart = selectedGuitar => {
+    setCart([...cart, selectedGuitar])
+  }
+
+
   return (
     <Document>
-      <Outlet/>
+      <Outlet
+        context={{
+          addToCart
+        }}/>
     </Document>
 
   )

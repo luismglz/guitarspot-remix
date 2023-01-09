@@ -1,4 +1,4 @@
-import {Outlet} from '@remix-run/react'
+import {Outlet, useOutletContext} from '@remix-run/react'
 import styles from '~/styles/products.css'
 
 
@@ -16,7 +16,8 @@ export function links(){
 function Store() {
   return (
     <main className='container'>
-      <Outlet/>
+      <Outlet
+        context={useOutletContext()}/>
     </main>
   )
 }

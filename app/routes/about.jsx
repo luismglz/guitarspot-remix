@@ -23,6 +23,7 @@ export function links(){
 }
 
 function About(){
+
   return(
     <main className="container about-us">
       <h2 className="heading">About Us</h2>
