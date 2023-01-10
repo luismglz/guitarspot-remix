@@ -19,7 +19,7 @@ export function links() {
 
 function Cart() {
 
-  const {cart}= useOutletContext()
+  const { cart, updateQuantityCart }= useOutletContext()
 
   return (
     <main className="container">
@@ -35,7 +35,20 @@ function Cart() {
                 </div>
                 <div>
                   <p className='name'>{item.name}</p>
-                  <p className='quantity'>Quantity: {item.quantity}</p>
+                  <p className='quantity'>Quantity: </p>
+                  <select 
+                    className='select'
+                    onChange={e => updateQuantityCart({
+                      quantity: +e.target.value,
+                      id: item.id
+                    })}
+                    value={item.quantity}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
                   <p className='price'><span>$ {item.price}</span></p>
                   <p className='subtotal'>Subtotal: <span>$ {item.quantity * item.price}</span></p>
                 </div>

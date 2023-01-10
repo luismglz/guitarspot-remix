@@ -71,13 +71,25 @@ export default function App() {
     }
   }
 
+  const updateQuantityCart = product => {
+    const updatedCart = cart.map(cartItem => {
+      if (cartItem.id === product.id){
+        cartItem.quantity = product.quantity;
+      }
+      return cartItem;
+    })
+    setCart(updatedCart);
+    
+  }
+
 
   return (
     <Document>
       <Outlet
         context={{
           addToCart,
-          cart
+          cart,
+          updateQuantityCart
         }}/>
     </Document>
 

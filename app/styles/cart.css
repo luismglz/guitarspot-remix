@@ -30,6 +30,17 @@
 .product p{
   margin: 0 0 1rem 0;
 }
+
+.select{
+  all: unset;
+  border: 1px solid #cfcfcf;
+  text-align: center;
+  width: 100%;
+  padding: .5rem;
+  border-radius: 1rem;
+}
+
+
 .product span{
   font-weight: 900;
   font-size: 3.2rem;
@@ -40,9 +51,10 @@
   font-size: 2.2rem;
 }
 
-.price{
+.product .price{
   font-weight: 700;
   color: var(--primary);
+  margin-top: 2rem;
 }
 
 .subtotal{
