@@ -21,6 +21,7 @@
   align-items: center;
   padding: 3rem 0;
   border-bottom: 1px solid #cfcfcf;
+  position: relative;
 }
 
 .product:last-of-type{
@@ -67,4 +68,15 @@
   border-radius: 1rem;
   position: sticky;
   top: 3rem;
+}
+
+.btn_remove_item{
+  all: unset;
+  position: absolute;
+  top: 3rem;
+  right: 1rem;
+}
+
+.btn_remove_item:hover{
+  cursor: pointer;
 }

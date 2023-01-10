@@ -20,11 +20,11 @@ export function links() {
 
 function Cart() {
   const [total, setTotal] = useState(0);
-  const { cart, updateQuantityCart } = useOutletContext();
+  const { cart, updateQuantityCart, deleteProductFromCart } = useOutletContext();
 
   useEffect(() => {
     const calculateTotal = cart.reduce((accumulator, currentItem) => accumulator + (currentItem.quantity * currentItem.price), 0)
-    
+
     setTotal(calculateTotal)
   }, [cart])
 
@@ -59,6 +59,11 @@ function Cart() {
                   <p className='price'><span>$ {item.price}</span></p>
                   <p className='subtotal'>Subtotal: <span>$ {item.quantity * item.price}</span></p>
                 </div>
+                <button
+                  type='button'
+                  className='btn_remove_item'
+                  onClick={()=>deleteProductFromCart(item.id)}
+                >X</button>
               </div>
             ))
           )}

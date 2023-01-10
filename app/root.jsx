@@ -71,6 +71,7 @@ export default function App() {
     }
   }
 
+  
   const updateQuantityCart = product => {
     const updatedCart = cart.map(cartItem => {
       if (cartItem.id === product.id){
@@ -78,8 +79,13 @@ export default function App() {
       }
       return cartItem;
     })
-    setCart(updatedCart);
-    
+    setCart(updatedCart); 
+  }
+
+
+  const deleteProductFromCart = id => {
+    const updatedCart = cart.filter(productState => productState.id !== id)
+    setCart(updatedCart)
   }
 
 
@@ -89,7 +95,8 @@ export default function App() {
         context={{
           addToCart,
           cart,
-          updateQuantityCart
+          updateQuantityCart,
+          deleteProductFromCart
         }}/>
     </Document>
 
