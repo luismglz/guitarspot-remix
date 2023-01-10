@@ -1,6 +1,7 @@
 import styles from '~/styles/cart.css'
 import { useEffect, useState } from 'react'
 import { useOutletContext } from '@remix-run/react'
+import {ClientOnly} from 'remix-utils'
 
 export function meta() {
   return {
@@ -29,6 +30,10 @@ function Cart() {
   }, [cart])
 
   return (
+    <ClientOnly fallback={'Loading...'}>
+      {()=>(
+
+      
     <main className="container">
       <h1 className="heading">Shopping Cart</h1>
       <div className="content">
@@ -74,6 +79,8 @@ function Cart() {
         </aside>
       </div>
     </main>
+      )}
+    </ClientOnly>
   )
 }
 
