@@ -35,6 +35,7 @@ function Cart() {
                 </div>
                 <div>
                   <p className='name'>{item.name}</p>
+                  <p className='quantity'>Quantity: {item.quantity}</p>
                   <p className='price'><span>$ {item.price}</span></p>
                   <p className='subtotal'>Subtotal: <span>$ {item.quantity * item.price}</span></p>
                 </div>
