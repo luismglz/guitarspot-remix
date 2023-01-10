@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Meta,
   Links,
@@ -50,11 +50,17 @@ export function links() {
 
 export default function App() {
 
-  const [cart, setCart] = useState([]);
+  //if localStorage is empty set with empty array
+  const localStorageData = typeof window !== 'undefined'? JSON.parse(localStorage.getItem('cart')) ?? [] : null
+
+  const [cart, setCart] = useState(localStorageData);
+
+  useEffect(()=>{
+    localStorage.setItem('cart', JSON.stringify(cart))
+  },[cart])
 
   const addToCart = selectedGuitar => {
     if(cart.some(guitarState => guitarState.id === selectedGuitar.id)){
-
 
       //identify duplied item
       const updatedCart = cart.map(guitarState => {
@@ -71,7 +77,8 @@ export default function App() {
     }
   }
 
-  
+
+
   const updateQuantityCart = product => {
     const updatedCart = cart.map(cartItem => {
       if (cartItem.id === product.id){

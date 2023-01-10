@@ -34,8 +34,8 @@ function Cart() {
       <div className="content">
         <div className="cart">
           <h2>Items</h2>
-          {cart.length === 0 ? 'Empty' : (
-            cart.map(item => (
+          {cart?.length === 0 ? 'Empty' : (
+            cart?.map(item => (
               <div key={item.id} className="product">
                 <div>
                   <img src={item.thumbnail} alt={`${item.name} product`} />
