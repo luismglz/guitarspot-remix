@@ -1,4 +1,5 @@
 import styles from '~/styles/cart.css'
+import { useEffect, useState } from 'react'
 import { useOutletContext } from '@remix-run/react'
 
 export function meta() {
@@ -18,8 +19,14 @@ export function links() {
 }
 
 function Cart() {
+  const [total, setTotal] = useState(0);
+  const { cart, updateQuantityCart } = useOutletContext();
 
-  const { cart, updateQuantityCart }= useOutletContext()
+  useEffect(() => {
+    const calculateTotal = cart.reduce((accumulator, currentItem) => accumulator + (currentItem.quantity * currentItem.price), 0)
+    
+    setTotal(calculateTotal)
+  }, [cart])
 
   return (
     <main className="container">
@@ -27,16 +34,16 @@ function Cart() {
       <div className="content">
         <div className="cart">
           <h2>Items</h2>
-          {cart.length === 0 ? 'Empty': (
-            cart.map(item =>(
+          {cart.length === 0 ? 'Empty' : (
+            cart.map(item => (
               <div key={item.id} className="product">
                 <div>
-                  <img src={item.thumbnail} alt={`${item.name} product`}/>
+                  <img src={item.thumbnail} alt={`${item.name} product`} />
                 </div>
                 <div>
                   <p className='name'>{item.name}</p>
                   <p className='quantity'>Quantity: </p>
-                  <select 
+                  <select
                     className='select'
                     onChange={e => updateQuantityCart({
                       quantity: +e.target.value,
@@ -58,7 +65,7 @@ function Cart() {
         </div>
         <aside className="summary">
           <h3>Order summary</h3>
-          <p>Total:</p>
+          <p>Total: ${total}</p>
         </aside>
       </div>
     </main>
