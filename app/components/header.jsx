@@ -1,5 +1,5 @@
 import {Link} from '@remix-run/react'
-import logo from '../../public/img/logo.svg'
+import logo from '../../public/img/logo.png'
 import Navigation from './navigation'
 
 function Header() {

@@ -1,6 +1,7 @@
 :root {
-  --primary: #e99401;
+  --primary: #ED1C24;
   --black: #262626;
+  --gray: #4a4a4a;
   --white: #FFF;
   --main-font: 'Outfit', sans-serif;
 }
@@ -44,7 +45,7 @@ main {
 }
 
 .header{
-  background-image: linear-gradient(to right, rgb(0 0 0 / .8), rgb(0 0 0 / .7)), url(/img/header.jpg);
+  background-image: linear-gradient(to right, rgb(0 0 0 / .8), rgb(0 0 0 / .7)), url(/img/header.webp);
   padding: 6rem 0;
   background-size: cover;
   background-position: center center;

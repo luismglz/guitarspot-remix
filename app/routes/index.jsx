@@ -8,10 +8,14 @@ import Course from '~/components/course'
 import styleProducts from '~/styles/products.css'
 import styleBlogs from '~/styles/blog.css'
 import styleCourse from '~/styles/course.css'
+import favicon from '../../public/favicon.ico'
+import { useEffect } from 'react'
 
 export function meta(){
 
 }
+
+
 
 export function links(){
   return[
@@ -26,6 +30,11 @@ export function links(){
     {
       rel: 'stylesheet',
       href: styleCourse
+    },
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: favicon
     },
   ]
 }
@@ -50,6 +59,7 @@ export async function loader(){
 function Index() {
 
   const {guitars, posts, course} = useLoaderData()
+
 
   return (
     <>
